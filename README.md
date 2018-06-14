@@ -3,7 +3,7 @@
 基于Laravel5的短信发送网关，极易扩展，你可以自由定义自已的网关驱动。
 
 ## 安装
-composer require hinet/laravel-sms
+composer require sttgithub/laravel-sms
 
 ## 配置
 * 注册服务提供器
