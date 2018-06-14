@@ -9,11 +9,11 @@ composer require sttgithub/laravel-sms
 * 注册服务提供器
 在config/app.php文件中providers数组里加入：
 ```php
-Hinet\Sms\SmsServiceProvider::class,
+sttgithub\Sms\SmsServiceProvider::class,
 ```
 在config/app.php文件中的aliases数组里加入
 ```php
-'Sms' => Hinet\Sms\Facades\Sms::class,
+'Sms' => sttgithub\Sms\Facades\Sms::class,
 ```
 
 * 发布配置文件
