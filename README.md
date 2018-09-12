@@ -3,7 +3,7 @@
 基于Laravel5的短信发送网关，极易扩展，你可以自由定义自已的网关驱动。
 
 ## 安装
-composer require sttgithub/laravel-sms
+composer require smilestt/laravel-sms
 
 ## 配置
 * 注册服务提供器
@@ -13,7 +13,7 @@ sttgithub\Sms\SmsServiceProvider::class,
 ```
 在config/app.php文件中的aliases数组里加入
 ```php
-'Sms' => sttgithub\Sms\Facades\Sms::class,
+'Sms' => smilestt\Sms\Facades\Sms::class,
 ```
 
 * 发布配置文件
