@@ -1,5 +1,5 @@
 {
-    "name": "hinet/laravel-sms",
+    "name": "smilestt/laravel-sms",
     "description": "SMS gateway package for laravel5",
     "license": "MIT",
     "require": {
