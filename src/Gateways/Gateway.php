@@ -52,6 +52,7 @@ class Gateway implements Repository
     public function verifyCode($mobile,$value = null)
     {
         $state = $this->storage->retrieveState();
+        //p($state);
         if (isset($state['attempts']))
         {
             $maxAttempts = $this->config['attempts'];
@@ -61,12 +62,16 @@ class Gateway implements Repository
                 return false;
             }
         }
+
+        //echo $state['to'] .'==='. $mobile.'-'.$state['verifycode'];exit;
+
         return $state && $state['deadline'] >= time() && $state['to'] === $mobile && $state['verifycode'] == intval($value);
     }
 
-    public function setVerifyCode($phone='',$type)
+    public function setVerifyCode($phone='',$type=0,$code=888888)
     {
-        $this->code = $this->makeRandom();
+        //$this->code = $this->makeRandom();
+        $this->code = $code ;
         //存储验证码
         $this->storage->setState([
             'send'     => true,
@@ -87,6 +92,7 @@ class Gateway implements Repository
         $this->content = str_replace('{minutes}', $this->config['minutes'], $this->content);
 
     }
+
 
     public function curl($url,$params = array(),$method='GET', $headers = array())
     {

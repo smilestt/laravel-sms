@@ -13,7 +13,13 @@ class BaiduGateway extends Gateway
     protected $headers;
     public function send($mobile, $type=0,$data=array())
     {
-        $this->setVerifyCode($mobile,$type);
+        foreach($data as $k=>$v){
+            if(is_int($v)){
+                $data[$k] = "{$v}";
+            }
+            if($k=='code')  $code = $v;
+        }
+        $this->setVerifyCode($mobile,$type,$code);
         $url = 'http://' . $this->config['endPoint'] . '/bce/v2/message';
         $params = [
             'invokeId'    => $this->config['invokeId'], //你申请的签名ID
@@ -24,6 +30,7 @@ class BaiduGateway extends Gateway
         $this->genSign($params);
         return $this->curl($url,$params,'POST',$this->headers);
     }
+    
     public function response($response)
     {
         if($response)
